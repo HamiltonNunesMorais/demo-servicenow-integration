@@ -1,1 +1,26 @@
-{"key":"value"}
+name: "Change Request Creation"
+
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  create-change-request:
+    name: "Create Change Request"
+    environment: CRQ_CREATE
+    runs-on: ubuntu-latest
+    steps:
+      - name: Finish workflow 
+        run: |
+          echo "::notice:: Create Change Request..."
+    
+  merge-prod:
+    name: "Merge PR"
+    environment: ALLOW_MERGE
+    needs: [create-change-request]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Finish workflow 
+        run: |
+          echo "::notice:: Now you are allowed to merge the PR..."
