@@ -8,7 +8,7 @@ on:
 jobs:
   create-change-request:
     name: "Create Change Request"
-    environment: CRQ_CREATE
+    environment: CRQ_CREATION
     runs-on: ubuntu-latest
     steps:
       - name: Finish workflow 
